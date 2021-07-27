@@ -10,9 +10,20 @@ if __name__ == '__main__':
         score = float(input("Students score: "))
         students_list.append([name, score])
 
-    students_list.sort(key=lambda student: student[1], reverse=True)
-    for students_name in range(len(students_list)):
-        if students_list[students_name] < max(students_list):
-            print(students_list[students_name])
+    students_list.sort(key=lambda student: student[1])
+    min_students_score = float(students_list[0][1])
+    for i in range(len(students_list)):
+        if students_list[i][1] > min_students_score:
+            second_worst_score = students_list[i][1]
+            break
 
-    print(students_list)
+    final_students_list = []
+    for i in range(len(students_list)):
+        if students_list[i][1] == second_worst_score:
+            final_students_list.append(students_list[i][0])
+            print(final_students_list)
+
+    final_students_list.sort()
+    for i in range(len(final_students_list)):
+        print(final_students_list[i])
+

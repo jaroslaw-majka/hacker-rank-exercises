@@ -17,4 +17,13 @@ for i in range(number_of_commands):
         s.pop()
     elif "remove" in user_command:
         item_to_be_removed = user_command.split()
+        try:
+            s.remove(int(item_to_be_removed[-1]))
+        except:
+            continue
+    elif "discard" in user_command:
+        item_to_be_discarded = user_command.split()
+        s.discard(int(item_to_be_discarded[-1]))
+
+print(sum(s))
 
